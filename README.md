@@ -124,10 +124,10 @@ The initial frequency parameters are generated from a simple standard normal dis
 ![Image](./figures/Omega_dist_new.png)
 **Figure 2.** The initial and final distribution of frequency parameter samples.
 
-![Image](./figures/omega_dire_v_dist_new.png)
+![Image](./figures/omega_dire_v_dist_new2.png)
 **Figure 3.** The histogram of rotated frequency samples $v\cdot\omega$ after $N=100$ resampling iteration steps.
 
-![Image](./figures/omega_dire_v_ortho_dist_new.png)
+![Image](./figures/omega_dire_v_ortho_dist_new2.png)
 **Figure 4.** The histogram of rotated frequency samples $v^\perp\cdot\omega$ after $N=100$ resampling iteration steps.
 
 In manuscript [1] we also proposed and tested a variant of the lattice random walk-based reampling algorithm, which utilizes the empirical covariance matrix of the frequencies. More numerical results are summarized in the Section 7 of manuscript [1].
