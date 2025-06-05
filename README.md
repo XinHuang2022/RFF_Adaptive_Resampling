@@ -29,7 +29,7 @@ $$
 \min_{\hat{\beta}\inℂ^K}\big( {\frac{1}{J}\sum _{j=1}^J|\beta(x_j)-y_j|^2}+{\lambda_1\sum _{k=1}^K |\hat{\beta}_k|^2}+{\lambda_2(\sum _{k=1}^K |\hat{\beta}_k|^2)^2}\big).
 $$
 
-where we define
+where we can define three terms in the objective function:
 
 $$
 L_1(\hat{\beta}):={\frac{1}{J}\sum _{j=1}^J|\beta(x_j)-y_j|^2},\quad L_2(\hat{\beta}):=\lambda_1\sum _{k=1}^K |\hat{\beta}_k|^2,\quad L_3(\hat{\beta}):=\lambda_2(\sum _{k=1}^K |\hat{\beta}_k|^2)^2.
