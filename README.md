@@ -72,7 +72,7 @@ is the sum of the neural network amplitudes corresponding to the same basis func
 
 **Input:** training data $(x_j, y_j)$, $j=1,\dots,J$
 
-**Output:** random Fourier feature model $x\mapsto\sum _{k=1}^K\hat\beta_k \mathrm{e}^{{\rm i}\omega_k\cdot x}$
+**Output:** random Fourier feature model $x\mapsto\sum _{k=1}^K\hat\beta_k \mathrm{e}^{{\mathrm{i}}\omega_k\cdot x}$
 
 Choose a number of resampling iterations $N$, random walk step size $\delta$,  cutoff $\epsilon$,  and Tikhonov parameters $\lambda_1,\lambda_2$
 
@@ -100,7 +100,7 @@ Set $(\omega_1,\ldots,\omega_K) = 0$   $\quad$// *Initialization of frequencies*
 
 $\hat{\beta} \gets$ approximate solution to optimization problem of minimizing $L(\hat{\beta})$ given $\omega$ and the data
 
-$x\mapsto\sum _{k=1}^K\hat\beta_k  \mathrm{e}^{{\rm i}\omega_k\cdot x}$
+$x\mapsto\sum _{k=1}^K\hat\beta_k  \mathrm{e}^{{\mathrm{i}}\omega_k\cdot x}$
 
 ## 4. An illustration of the convergence of the resampling algorithm
 As an illustrative numerical example, we apply the proposed RFF resampling algorithm to approximate the target function
@@ -171,6 +171,8 @@ $$
 
 where $\nabla L$ is the concatenated gradient with respect to $a$ and $b$, and $H$ is the full block Hessian matrix. This formulation enables second-order convergence behavior.
 
+
+The detailed steps for deriving the gradient and Hessian of the loss function with respect to the complex-valued parameter vector $\hat{\beta}$ are provided in the file [Supplementary_information.pdf](./Supplementary_information.pdf). The derivation includes the block structure of the real-valued Hessian corresponding to the decomposition of $\hat{\beta}=a+\mathrm{i}b$
 
 
 ##  References
