@@ -142,7 +142,7 @@ $$
 Since the parameter vector $\hat{\beta}\inℂ^K$ is complex-valued, we decompose it into its real and imaginary components:
 
 $$
-\hat{\beta}=a+ib,\quad \textup{where}   \quad a, b\inℝ^K .
+\hat{\beta}=a+\mathrm{i}b,\quad \textup{where}   \quad a, b\inℝ^K .
 $$
 
 We compute the gradient and Hessian with respect to $a$ and $b$ seperately, leading to a real-valued system of size $2K\times 2K$. The corresponding Hessian matrix takes the block form:
@@ -172,7 +172,7 @@ $$
 where $\nabla L$ is the concatenated gradient with respect to $a$ and $b$, and $H$ is the full block Hessian matrix. This formulation enables second-order convergence behavior.
 
 
-The detailed steps for deriving the gradient and Hessian of the loss function with respect to the complex-valued parameter vector $\hat{\beta}$ are provided in the file [Supplementary_information.pdf](./Supplementary_information.pdf). The derivation includes the block structure of the real-valued Hessian corresponding to the decomposition of $\hat{\beta}=a+\mathrm{i}b$
+The detailed steps for deriving the gradient and Hessian of the loss function with respect to the complex-valued parameter vector $\hat{\beta}$ are provided in the file [Supplementary_information.pdf](./Supplementary_information.pdf). The derivation includes the block structure of the real-valued Hessian corresponding to the decomposition of $\hat{\beta}=a+\mathrm{i}b$.
 
 
 ##  References
