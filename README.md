@@ -130,7 +130,7 @@ The initial frequency parameters are generated from a simple standard normal dis
 ![Image](./figures/omega_dire_v_ortho_dist_new2.png)
 **Figure 4.** The histogram of rotated frequency samples $v^\perp\cdot\omega$ after $N=100$ resampling iteration steps.
 
-In manuscript [1] we also proposed and tested a variant of the lattice random walk-based reampling algorithm, which utilizes the empirical covariance matrix of the frequencies. More numerical results are summarized in the Section 7 of manuscript [1].
+In manuscript [1] we also proposed and tested a variant of the lattice random walk-based reampling algorithm, which utilizes the empirical covariance matrix of the frequencies. More numerical results are summarized in the Section 7 of the manuscript.
 
 ## 5. Newton-Raphson optimization of the regularized loss function
 Due to the convexity of the total loss function $L(\hat{\beta})$, the minimizer $\hat{\beta}$ is obtained by the solution of the first-order optimality condition:
