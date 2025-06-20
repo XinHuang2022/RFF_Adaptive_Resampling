@@ -172,7 +172,7 @@ $$
 where $\nabla L$ is the concatenated gradient with respect to $a$ and $b$, and $H$ is the full block Hessian matrix. This formulation enables second-order convergence behavior.
 
 
-The detailed steps for deriving the gradient and Hessian of the loss function with respect to the complex-valued parameter vector $\hat{\beta}$ are provided in the file [Supplementary_information.pdf](./Supplementary_information.pdf). The derivation includes the block structure of the real-valued Hessian corresponding to the decomposition of $\hat{\beta}=a+\mathrm{i}b$.
+The detailed steps for deriving the gradient and Hessian of the loss function with respect to the complex-valued parameter vector $\hat{\beta}$ are provided in the file [Supplementary_information](./Supplementary_information.pdf). The derivation includes the block structure of the real-valued Hessian corresponding to the decomposition of $\hat{\beta}=a+\mathrm{i}b$.
 
 
 ##  References
