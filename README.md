@@ -100,7 +100,7 @@ Set $(\omega_1,\ldots,\omega_K) = 0$   $\quad$// *Initialization of frequencies*
 
 $\hat{\beta} \gets$ approximate solution to optimization problem of minimizing $L(\hat{\beta})$ given $\omega$ and the data
 
-$x\mapsto\sum _{k=1}^K\hat\beta_k  \mathrm{e}^{{\mathrm{i}}\omega_k\cdot x}$
+**Return:** $x\mapsto\sum _{k=1}^K\hat\beta_k  \mathrm{e}^{{\mathrm{i}}\omega_k\cdot x}$
 
 ## 4. An illustration of the convergence of the resampling algorithm
 As an illustrative numerical example, we apply the proposed RFF resampling algorithm to approximate the target function
