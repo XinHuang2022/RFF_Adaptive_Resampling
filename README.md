@@ -1,5 +1,5 @@
 #  Implementation of Adaptive Resampling for Random Fourier Features
-This repository provides the implementation of the *adaptive resampling algorithms* proposed in the manuscript [1], based on the *random Fourier feature* (RFF) framework. The method incorporates a Newton–Raphson optimization scheme to efficiently solve the regularized least squares problem for regression tasks.
+This repository provides an implementation of the *adaptive resampling algorithms* proposed in manuscript [1], based on the *random Fourier feature* (RFF) framework. The method incorporates a Newton–Raphson optimization scheme to efficiently solve the regularized least squares problem for regression tasks.
 
 
 ## 1. Overview
