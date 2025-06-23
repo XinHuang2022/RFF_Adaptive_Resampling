@@ -68,7 +68,7 @@ $$
 $$
 
 is the sum of the neural network amplitudes corresponding to the same basis function $\mathrm{e}^{\mathrm{i}\omega_n\cdot x}$, and $\epsilon>0$ is a cutoff parameter excluding the amplitudes below this threshold. In particular, we proposed and tested the following adaptive algorithm which updates the frequency parameters iteratively with random walk and resampling steps.
-#### Algorithm: Adaptive resampling with random walk on lattice
+### Algorithm: Adaptive resampling with random walk on lattice
 
 **Input:** training data $(x_j, y_j)$, $j=1,\dots,J$
 
