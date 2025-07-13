@@ -7,14 +7,14 @@
 	use_init_omega_zero = false;    % If set to true, use zero initial values for all frequencies; otherwise, use standard Gaussian distribution for initial frequencies.
 	use_random_vector_v = true;    % If set to true, use random uniform distribution in each direction of vector v; otherwise, use only the first component equal to 1, and other components equal to 0.
 	use_periodic_data = false;    % If set to true, use periodic data for training; otherwise, use non-periodic original sampled data.
-	use_sinint_f = true;    % If set to true, use the target function with f(x) = sinint( x_data_prod_v / a ) * exp( -x_data_square / 2 ); otherwise use the exponential target function.
+	use_sinint_f = false;    % If set to true, use the target function with f(x) = sinint( x_data_prod_v / a ) * exp( -x_data_square / 2 ); otherwise use the exponential target function.
 	use_noisy_y_data = true;    % If set to true, add a Gaussian noise with mean zero and standard deviation 0.25 on each observed y_j data points; otherwise use purely clean data
 	use_standard_data = false;    % If set to true, use standardized training data; otherwise use orginal training data.
 	use_early_stopping = true;    % If set to true, implement an early stopping by inspecting on the validation loss.
 
 	J = 18750;
-	d = 4;
-	K = 2500;
+	d = 2;
+	K = 22500;
 	
 	% Determine the initial distribution of frequency parameters
 	if( use_init_omega_zero )
@@ -27,9 +27,9 @@
 	% Preparing the data set ( x_j, y_j ) of size J by d and J by 1
 	% Determine the anisotropic property parameter v
 	if( use_random_vector_v )
-		v_vec = rand( 1, d );
-		v_vec = v_vec / norm( v_vec );
-		% v_vec = [ 0.3308, 0.9437 ];
+		% v_vec = rand( 1, d );
+		% v_vec = v_vec / norm( v_vec );
+		v_vec = [ 0.3308, 0.9437 ];
 	else
 		v_vec = zeros( 1, d );
 		v_vec( 1, 1 ) = 1;
@@ -67,7 +67,7 @@
 	end
 	
 	if( use_noisy_y_data )
-		s_para = 0.25 / 4;
+		s_para = 0.25 / 16;
 		y_data_ori = y_data_true + s_para * randn( J, 1 );
 	else
 		y_data_ori = y_data_true;				   
@@ -96,12 +96,12 @@
 	end							 
 	
 	%%  Implementation of the resampling algorithm
-	num_resample = 200;
-	delta = 0.2;
+	num_resample = 30;
+	delta = 0.5;
 	lambda = K * sqrt( J_train ) / 100;
 	Rel_Tol = 1 * 10^( -3 );
-    epsilon = K^(-0.5) / 200;
-    % epsilon = 0;
+    % epsilon = K^(-0.5) / 200;
+    epsilon = 0;
 	C_mat_init = eye( d );
 	C_mat_sample = C_mat_init;
 	epsilon_hat = 1e-3;
@@ -113,8 +113,11 @@
 	
 	for n = 1 : 1 : num_resample
 	
-		L_C_mat = chol( C_mat_sample + epsilon_hat * eye( d ), 'lower' );    % Applying Cholesky decomposition on the covariance matrix
-		zeta_mat = randn( K, d ) * L_C_mat;
+		% L_C_mat = chol( C_mat_sample + epsilon_hat * eye( d ), 'lower' );    % Applying Cholesky decomposition on the covariance matrix
+		% zeta_mat = randn( K, d ) * L_C_mat;
+        mu_temp = zeros( 1, d );
+        sigma_temp = C_mat_sample + epsilon_hat * eye( d );
+        zeta_mat = mvnrnd( mu_temp, sigma_temp, K );    % Sampling based on empirical covariance matrix
 		omega_rw = omega_sample + delta * zeta_mat;
 		
 		S_mat = exp( 1i * ( x_data_train * omega_rw' ) );
@@ -249,7 +252,7 @@
 		C = integral( @( x ) convolution( x ), -100, 100, 'ArrayValued', true );
 		
 		% Compute and plot the normalized probability density function
-		w_1_values = linspace( -100, 100, 200 ); % Discretized x values
+		w_1_values = linspace( -200, 200, 200 ); % Discretized x values
 		conv_values = arrayfun( convolution, w_1_values ); % Compute convolution at each x
 		normalized_conv = conv_values / C; % Normalize
 		
@@ -274,7 +277,7 @@
 		fprintf('Approximate normalization constant C: %.6f\n', C);
 
 		fig4 = figure;
-		num_bins = 100;
+		num_bins = 50;
 		v_vec_ortho = [ -v_vec( 1, 2), v_vec( 1, 1 ) ];
 		sample_omega_2 = omega_sample * v_vec_ortho';
 		iqr_omega_2 = iqr( sample_omega_2 );
