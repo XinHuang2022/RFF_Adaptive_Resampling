@@ -154,7 +154,23 @@
 		% Compute the testing loss and validation loss
         Least_square_rec_test( n, 1 ) = norm( y_test_pred - y_data_test )^2 / norm( y_data_test )^2;
 		Least_square_rec_train( n, 1 ) = norm( y_train_pred - y_data_train_ori )^2 / norm( y_data_train_ori )^2;
-		Least_square_rec_valid( n, 1 ) = norm( y_valid_pred - y_data_valid_ori )^2 / norm( y_data_valid_ori )^2;		
+		Least_square_rec_valid( n, 1 ) = norm( y_valid_pred - y_data_valid_ori )^2 / norm( y_data_valid_ori )^2;
+
+		if( use_early_stopping )
+			validation_error_n = Least_square_rec_valid( n, 1 );
+			if( validation_error_n < best_loss )
+				best_loss = validation_error_n;
+				beta_best = beta_vec;  % Save current model
+				no_improve_count = 0;  % Reset counter
+			else
+				no_improve_count = no_improve_count + 1;
+			end
+			
+			if( no_improve_count >= patience )
+				fprintf( 'Early stopping at resampling iteration %d.\n', n );
+				break;
+			end
+		end		
 		
 		select_indices = abs( beta_vec ) > epsilon;
         beta_vec_select = beta_vec( select_indices, : );
