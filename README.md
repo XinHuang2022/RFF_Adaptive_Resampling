@@ -178,7 +178,7 @@ The detailed steps for deriving the gradient and Hessian of the loss function wi
 ##  References
 
 [1] *Convergence for Adaptive Resampling of Random Fourier Features*, arXiv preprint   
-<!--Available at: [https://arxiv.org/abs/2406.01234](https://arxiv.org/abs/2406.01234)-->
+Available at: [https://arxiv.org/abs/2509.03151](https://arxiv.org/abs/2509.03151)
 
 
 <!--**Bold**, *Italic*, `Code`
